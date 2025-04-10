@@ -5,7 +5,7 @@ pipeline {
             steps {
                 echo 'executing yarn...'
                 nodejs('Node-23.11'){
-                  bat 'yarn install'
+                  sh 'yarn install'
                 }
             }
         }
@@ -13,7 +13,7 @@ pipeline {
             steps {
                 echo 'executing gradle...'
                 withGradle(){
-                  bat './gradlew -v'
+                  sh './gradlew -v'
                 }
             }
         }
