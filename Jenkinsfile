@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    tools {
+        gradle 'Gradle'   // <- match the name you configured
+    }
     stages {
         stage("run frontend") {
             steps {
@@ -12,9 +15,7 @@ pipeline {
         stage("run backend") {
             steps {
                 echo 'executing gradle...'
-                withGradle() {
-                    bat 'gradlew -v'
-                }
+                bat 'gradle -v'   // Now using the installed Gradle
             }
         }
     }
